@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PP Sabilul Huda Bahrul 'Ulum — Mencetak Generasi Qur'ani</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+ <link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<!-- ====== PRELOADER ====== -->
+<div id="preloader">
+  <div class="pl-arab">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+  <div class="pl-line"></div>
+  <div class="pl-name"><img src="img/1.png" alt="Logo" width="350"></div>
+  <div class="pl-arab">PP.SABILUL HUDA</div>
+</div>
+
+<div id="cursorGlow"></div>
+<div id="progress"></div>
+
+<!-- ====== OVERLAY TRANSISI ANTAR SEKSI ====== -->
+<div id="pageTransition">
+  <img src="1.png" alt="" class="pt-logo">
+  <div class="pt-spinner"></div>
+  <div class="pt-track"><span id="ptBarFill"></span></div>
+  <div class="pt-meta">
+    <div class="pt-label">Memuat <span id="ptTarget">Halaman</span></div>
+    <div class="pt-pct" id="ptPct">0%</div>
+  </div>
+</div>
+
+<!-- ====== HEADER ====== -->
+<header id="site-header">
+  <div class="topbar">
+    <div class="wrap">
+      <div class="topbar-left"><span id="todayDate"></span></div>
+      <div class="topbar-right">
+        <span>Penerimaan Santri Baru <a href="#ppdb">2025/2026 telah dibuka</a></span>
+        <a href="https://wa.me/6285272367693" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:6px;">
+          <i class="fa-brands fa-whatsapp" style="color:#25d366"></i> 0852-7236-7693
+        </a>
+        <span class="tb-sos">
+          <a class="s-yt" href="https://youtube.com/@ppsabilulhudabahrululum9597?si=Tk_8exBZBV46uZVD" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a class="s-fb" href="https://web.facebook.com/sabilul.huda.9237/about" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a class="s-ig" href="https://instagram.com/sabilulhuda_" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a class="s-wa" href="https://wa.me/6285272367693" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </span>
+      </div>
+    </div>
+  </div>
+  <nav id="mainNav">
+    <a class="brand" href="#beranda">
+      <img src="img/1.png" alt="Logo PP Sabilul Huda" class="brand-logo">
+      <span class="brand-txt">
+        <span class="b1"></span><br>
+        <span class="b2"></span>
+      </span>
+    </a>
+    <div class="nav-links">
+      <a href="#beranda">Beranda</a>
+      <a href="#profil">Profil</a>
+      <a href="#program">Program</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#berita">Berita</a>
+      <a href="#kontak">Kontak</a>
+    </div>
+    <a href="#ppdb" class="btn btn-glow">Daftar PPDB <i data-lucide="arrow-up-right"></i></a>
+    <button id="menuBtn" aria-label="Buka menu"><i data-lucide="menu" style="width:26px;height:26px"></i></button>
+  </nav>
+</header>
+
+<!-- ====== MENU MOBILE ====== -->
+<div id="mobileMenu">
+  <button id="menuClose" aria-label="Tutup menu"><i data-lucide="x" style="width:30px;height:30px"></i></button>
+  <a href="#beranda"><span>01</span>Beranda</a>
+  <a href="#profil"><span>02</span>Profil</a>
+  <a href="#program"><span>03</span>Program</a>
+  <a href="#galeri"><span>04</span>Galeri</a>
+  <a href="#berita"><span>05</span>Berita</a>
+  <a href="#ppdb"><span>06</span>Pendaftaran</a>
+  <a href="#kontak"><span>07</span>Kontak</a>
+  <div class="mm-sos">
+    <a href="https://youtube.com/@ppsabilulhudabahrululum9597?si=Tk_8exBZBV46uZVD" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+    <a href="https://web.facebook.com/sabilul.huda.9237/about" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="https://instagram.com/sabilulhuda_" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://wa.me/6285272367693" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+  </div>
+</div>
+
+<main>
+
+<!-- ====== HERO BG: VIDEO AI GENERATIF (tanpa file) ====== -->
+<div class="hero-bg" aria-hidden="true">
+  <canvas id="aiCanvas"></canvas>
+  <div class="hero-veil"></div>
+  <div class="hero-grain"></div>
+</div>
+  <div class="hero-bg" aria-hidden="true">
+  <div class="hb hb1"></div>
+  <div class="hb hb2"></div>
+  <video id="heroVideo" ...> ... </video>
+  <div class="hero-veil"></div>
+  <div class="hero-grain"></div>
+</div>
+
+<!-- ====== HERO SINEMATIK ====== -->
+<section class="hero" id="beranda">
+  <div class="hero-bg" aria-hidden="true">
+    <!-- montase foto bergaya video: foto drone + foto pondok, crossfade otomatis -->
+    <div class="cine-layer cine-1"></div>
+    <div class="cine-layer cine-2"></div>
+    <div class="cine-layer cine-3"></div>
+    <!-- kalau punya file "video.mp4", otomatis mengambil alih -->
+    <video id="hero vidio" autoplay muted loop playsinline preload="metadata">
+      <source src="img/DJI_0022 - Copy.MP4" type="video/mp4">
+      <source src="img/DJI_0022 - Copy.MP4" type="video/mp4">
+    </video>
+    <div class="cine-sweep"></div>
+    <div class="cine-vignette"></div>
+    <div class="cine-bar top"></div>
+    <div class="cine-bar bot"></div>
+    <div class="hero-veil"></div>
+    <div class="hero-grain"></div>
+  </div>
+    
+  </div>
+  <div class="aurora"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+  <div class="cine-hud"><span class="rec"></span> Drone &bull; Sinematik 4K</div>
+  <div class="hero-arab">بَحْرُ الْعُلُومِ — Lautan Ilmu</div>
+  <div class="wrap hero-inner">
+    <div>
+      <div class="eyebrow">PP Sabilul Huda Bahrul 'Ulum &middot; Tambakberas</div>
+      <h1>
+        <span class="h-line"><span>Pondok Pesantren</span></span>
+        <span class="h-line"><span> <em>Sabilul Huda.</em></span></span>
+      </h1>
+      <p class="hero-p">Lembaga pendidikan Islam yang memadukan kurikulum nasional, tahfidzul Qur'an, dan kedisiplinan adab — demi generasi yang berilmu, berakhlak, dan bermanfaat bagi umat.</p>
+      <div class="hero-cta">
+        <a href="#ppdb" class="btn btn-glow">Daftar Santri Baru <i data-lucide="arrow-right"></i></a>
+        <a href="#profil" class="btn btn-line">Profil Pondok</a>
+      </div>
+      <div class="hero-sos">
+        <span class="lbl">Ikuti Kami</span>
+        <a class="s-yt" href="https://youtube.com/@ppsabilulhudabahrululum9597?si=Tk_8exBZBV46uZVD" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a class="s-fb" href="https://web.facebook.com/sabilul.huda.9237/about" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a class="s-ig" href="https://instagram.com/sabilulhuda_" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a class="s-wa" href="https://wa.me/6285272367693" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="">
+        <img src="img/SUBUL ai.png" alt="PP Sabilul Huda">
+        <svg class="seal" viewBox="0 0 120 120">
+          <defs><path id="circPath" d="M60,60 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0"/></defs>
+        </svg>
+      </div>
+      <img src="img/frame atas 2.png" alt="PP Sabilul Huda" width="500" height="75">
+      <div class="">
+        <div class="t1"></div>
+        <div class="t2"></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">Gulir</div>
+</section>
+
+<!-- ====== MARQUEE ====== -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="mqTrack">
+    <div class="mq-group">
+      <span>Pelajaran Shorof</span><i>&#10022;</i><span>Pelajaran Nahwu</span><i>&#10022;</i>
+      <span>Tahfidzul Qur'an</span><i>&#10022;</i><span>Bahasa Arab</span><i>&#10022;</i>
+      <span>Pelajaran Fiqih</span><i>&#10022;</i><span>Akhlak &amp; Adab</span><i>&#10022;</i>
+    </div>
+  </div>
+</div>
+
+<!-- ====== PROFIL ====== -->
+<section id="profil" class="pattern">
+  <div class="wrap">
+    <div class="profil-grid">
+      <figure class="profil-fig" data-reveal>
+        <img src="img/IMG_6675.JPG" alt="Pengasuh PP.Sabilul Huda">
+        <figcaption><b>Pengasuh PP.Sabilul Huda</b>KH.imron Rosyadi malik &amp; Nyai Hj.Elok Basyiroh Muzayyanah </figcaption>
+      </figure>
+      <div class="profil-txt" data-reveal>
+        <div class="sec-label">Pengasuh PP.Sabilul Huda</div>
+        <h2>Lautan ilmu yang<br>mengalir bersama</h2>
+        <br>
+        <p><strong>PP.Sabilul Huda Bahrul 'Ulum</strong> adalah lembaga pendidikan Islam yang membina santri-santri dalam iklim halaqah ilmah, keteladanan para asatidz, dan kedisiplinan yang hangat.</p>
+        <p>Kami percaya ilmu tanpa adab adalah cahaya yang menyesatkan. Karena itu, setiap santri dibina agar kelak pulang sebagai pribadi yang bermanfaat bagi agama, nusa, dan bangsa.</p>
+        <ul class="pillars">
+          <li><span class="no">I</span><b>Ngaji</b><span>Menambah ilmu agama, memperkuat iman, dan membentuk akhlak yang baik.</span></li>
+          <li><span class="no">II</span><b>Jamaah</b><span>Melatih kedisiplinan, kebersamaan, dan ketaatan dalam beribadah.</span></li>
+          <li><span class="no">III</span><b>Sekolah</b><span>Menambah ilmu pengetahuan umum dan mempersiapkan santri untuk masa depan.</span></li>
+        </ul>
+        <div class="sign">
+          <div class="avatar">SH</div>
+          <div class="who">
+            <b>KH.IMRON ROSYADI MALIK</b>
+            <b>Nyai Hj.Elok Basyiroh Muzayyanah </b>
+            <span>Pengasuh Pondok</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats" data-reveal>
+      <div class="stat"><div class="stat-num"><span data-count="280" data-suffix="+"></span></div><div class="stat-label">Santri Aktif</div></div>
+      <div class="stat"><div class="stat-num"><span data-count="62" data-suffix="+"></span></div><div class="stat-label">Kepengurusan</div></div>
+      <div class="stat"><div class="stat-num"><span data-count="100" data-suffix="+"></span></div><div class="stat-label">Alumni</div></div>
+      <div class="stat"><div class="stat-num"><span data-count="30"></span><sup>Juz</sup></div><div class="stat-label">Target Tahfidz Berjenjang</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== PROGRAM ====== -->
+<section id="program">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <div class="sec-label">Program &amp; Kegiatan</div>
+      <h2>Satu naungan, enam program</h2>
+      <p class="sec-sub">Sentuh atau arahkan kursor pada setiap program untuk mengintip wajah kegiatannya.</p>
+    </div>
+    <div class="prog-list" data-reveal>
+
+      <div class="prog-item" data-img="img/ls.JPG">
+        <div class="prog-head">
+          <span class="prog-no">01</span>
+          <span class="prog-name">Lailatush Sholawat (LS)</span>
+          <span class="prog-age">Rutinan Jumat Wage</span>
+          <span class="prog-icon"><i data-lucide="plus"></i></span>
+        </div>
+        <div class="prog-body"><div class="prog-body-in"><span></span><div>
+          <p>Fondasi iman dan kecintaan pada Nabi Muhammad SAW — pembacaan sholawat, simtudduror, dan amalan-amalan sunnah yang dilaksanakan rutin setiap Jumat Wage.</p>
+          <div class="mini-tags"><span>Sholawat</span><span>Simtudduror</span><span>Rutinan Minggon</span></div>
+        </div></div></div>
+      </div>
+
+      <div class="prog-item" data-img="img/ngji.JPG">
+        <div class="prog-head">
+          <span class="prog-no">02</span>
+          <span class="prog-name">Ziarah Wali Songo</span>
+          <span class="prog-age">Kegiatan Tahunan</span>
+          <span class="prog-icon"><i data-lucide="plus"></i></span>
+        </div>
+        <div class="prog-body"><div class="prog-body-in"><span></span><div>
+          <p>Menapak jejak perjuangan para wali di tanah Jawa — menumbuhkan kecintaan pada sejarah Islam Nusantara dan memperkuat rasa syukur serta kerendahan hati santri.</p>
+          <div class="mini-tags"><span>Ziarah</span><span>Sejarah Islam</span><span>Taaruf Nusantara</span></div>
+        </div></div></div>
+      </div>
+
+      <div class="prog-item" data-img="img/p (3 of 6).jpg">
+        <div class="prog-head">
+          <span class="prog-no">03</span>
+          <span class="prog-name">Tahfidzul Qur'an</span>
+          <span class="prog-age">Berjenjang 30 Juz</span>
+          <span class="prog-icon"><i data-lucide="plus"></i></span>
+        </div>
+        <div class="prog-body"><div class="prog-body-in"><span></span><div>
+          <p>Program menghafal Al-Qur'an secara berjenjang dengan setoran harian, muraja'ah pekanan, dan pembinaan tajwid oleh muhafizh bersanad — hingga target 30 juz.</p>
+          <div class="mini-tags"><span>Hafalan Harian</span><span>Muraja'ah</span><span>Tajwid &amp; Sanad</span></div>
+        </div></div></div>
+      </div>
+
+      <div class="prog-item" data-img="img/mji.jpg">
+        <div class="prog-head">
+          <span class="prog-no">04</span>
+          <span class="prog-name">Madrasah Diniyah</span>
+          <span class="prog-age">Kitab Kuning</span>
+          <span class="prog-icon"><i data-lucide="plus"></i></span>
+        </div>
+        <div class="prog-body"><div class="prog-body-in"><span></span><div>
+          <p>Pengajian kitab kuning berjenjang — nahwu, shorof, fiqih, tauhid, akhlak, dan tasawuf — dengan metode sorogan dan bandongan yang klasik dan teruji.</p>
+          <div class="mini-tags"><span>Sorogan</span><span>Bandongan</span><span>Kitab Kuning</span></div>
+        </div></div></div>
+      </div>
+
+      <div class="prog-item" data-img="img/ht.JPG">
+        <div class="prog-head">
+          <span class="prog-no">05</span>
+          <span class="prog-name">Pelantikan</span>
+          <span class="prog-age">Pengurus</span>
+          <span class="prog-icon"><i data-lucide="plus"></i></span>
+        </div>
+        <div class="prog-body"><div class="prog-body-in"><span></span><div>
+          <p>i balik kehidupan pesantren yang tertata, terdapat kepengurusan yang senantiasa mengabdi dan mendampingi para santri. Dengan penuh tanggung jawab</p>
+          <div class="mini-tags"><span>Membina</span><span>Mengabdi</span><span>Mendampingi</span></div>
+        </div></div></div>
+      </div>
+
+      <div class="prog-item" data-img="img/sc.JPG">
+        <div class="prog-head">
+          <span class="prog-no">06</span>
+          <span class="prog-name">Ziaroh</span>
+          <span class="prog-age">Ziaroh Mingguan</span>
+          <span class="prog-icon"><i data-lucide="plus"></i></span>
+        </div>
+        <div class="prog-body"><div class="prog-body-in"><span></span><div>
+          <p>Ziarah mingguan sebagai ikhtiar meneladani para ulama, memperbanyak doa, serta menumbuhkan kecintaan kepada para salihin dan keberkahan dalam menuntut ilmu..</p>
+          <div class="mini-tags"><span>Ziaroh</span><span>Doa</span><span>Tawadhu</span></div>
+        </div></div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ====== AYAT ====== -->
+<section class="ayat">
+  <div class="orn">&#10022; &#10022; &#10022;</div>
+  <div class="arab">أَلَا بِذِكْرِ اللهِ تَطْمَئِنُّ الْقُلُوْبُ</div>
+  <p class="trans">"Ingatlah, hanya dengan mengingat Allah hati menjadi tenteram."</p>
+  <div class="src">QS. Ar-Ra'd : 28</div>
+</section>
+
+<!-- ====== GALERI ====== -->
+<section id="galeri">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <div class="sec-label">Galeri Kegiatan</div>
+      <h2>kegiatan sehari-hari di pondok</h2>
+      <p class="sec-sub">Setiap momen santri adalah potongan lautan ilmu — dari halaqah subuh hingga kegiatan mandiri.</p>
+    </div>
+  </div>
+  <div class="gal-marquee" data-reveal>
+    <div class="gal-track">
+      <div class="gal-card"><img src="img/thfd.jpg" alt="Kompleks Pondok"><div class="gal-cap"><b></b><span></span></div></div>
+      <div class="gal-card"><img src="img/susnn.jpeg" alt="Aula Pondok"><div class="gal-cap"><b></b><span> &amp;</span></div></div>
+      <div class="gal-card"><img src="img/ls.JPG" alt="Lailatush Sholawat"><div class="gal-cap"><b></b><span></span></div></div>
+      <div class="gal-card"><img src="img/hmp1.JPG" alt="Humapon"><div class="gal-cap"><b></b><span></span></div></div>
+      <div class="gal-card"><img src="img/IMG_0209.JPG" alt=""><div class="gal-cap"><b></b><span></span></div></div>
+      <div class="gal-card"><img src="img/IMG_0268.JPG" alt=""><div class="gal-cap"><b></b><span></span></div></div>
+      <div class="gal-card"><img src="img/IMG_7021.JPG" alt=""><div class="gal-cap"><b></b><span></span></div></div>
+      <div class="gal-card"><img src="img/IMG_7113.JPG" alt=""><div class="gal-cap"><b></b><span></span></div></div>
+    </div>
+  </div>
+  <div class="gal-marquee rev" data-reveal>
+    <div class="gal-track">
+      <div class="gal-card"><img src="img/IMG_6675.JPG" alt="Pengasuh"><div class="gal-cap"><b></b><span></span></div></div>
+      <div class="gal-card"><img src="img/nr.JPG" alt="Halaqah Subuh"><div class="gal-cap"><b></b><span></span></div></div>
+      <div class="gal-card"><img src="img/20230507235135_IMG_2233.JPG" alt="Wisuda Tahfidz"><div class="gal-cap"><b></b><span></span></div></div>
+      <div class="gal-card"><img src="img/p (3 of 6).jpg" alt="Kegiatan Santri"><div class="gal-cap"><b></b><span></span></div></div>
+      <div class="gal-card"><img src="img/IMG_9933.JPG" alt=""><div class="gal-cap"><b></b><span></span></div></div>
+      <div class="gal-card"><img src="img/IMG_9934.JPG" alt=""><div class="gal-cap"><b></b><span></span></div></div>
+      <div class="gal-card"><img src="img/IMG_9991.JPG" alt=""><div class="gal-cap"><b></b><span></span></div></div>
+      <div class="gal-card"><img src="img/IMG_0084.JPG" alt=""><div class="gal-cap"><b></b><span></span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== BERITA ====== -->
+<section id="berita">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <div class="sec-label">Kabar Pondok</div>
+      <h2>Berita &amp; info terbaru</h2>
+    </div>
+    <div class="news-grid">
+      <article class="news-feature" data-reveal
+        data-img="img/brosur.jpg" data-cat="Acara Pondok" data-date="18 Juni 2025"
+        data-title="Khataman &amp; Wisuda Tahfidz Santri Angkatan 2025"
+        data-body="p>Alhamdulillah, tahun ini PP Sabilul Huda Bahrul 'Ulum kembali mengwisuda para santri penghafal Al-Qur'an. Acara berlangsung khidmat di aula pondok, dihadiri para wali santri dan tokoh sekitar.</p><p>Selain khataman, panitia juga menggelar pameran karya santri dan ramah tamah bersama seluruh asatidz.</p>">
+        <div class="nf-img"><img src="img/brosur.jpg" alt="Wisuda Tahfidz"></div>
+        <div class="nf-meta"><span class="chip">Pendaftaran</span><span class="nf-date">2026-2027</span></div>
+        <h3>Penerimaan &amp; Santri Baru Tahun Ajaran 2026-2027</h3>
+        <p>PP Sabilul Huda membuka pendaftaran santri baru bagi putra dan putri yang ingin menempuh pendidikan di lingkungan pesantren yang mengutamakan ilmu agama, pendidikan umum, ibadah, akhlak, dan kemandirian..</p>
+      </article>
+      <div class="news-side" data-reveal>
+
+  <!-- Berita 1 -->
+  <article
+    class="news-item"
+    data-img="img/IMG_9117.JPG"
+    data-cat="Kegiatan Tahunan"
+    data-date="26-31 Desember 2024"
+    data-title="Ziarah Wali Songo: Menapak Jejak Para Penguat Hati"
+    data-body="p>Santri mengikuti ziarah tahunan ke makam-makam para Wali Songo. Kegiatan ini membekas sebagai pelajaran sejarah sekaligus penanaman kerendahan hati./p>"
+  >
+    <div class="ni-date">
+      <b>24-31</b>
+      <span>Desember</span>
+    </div>
+
+    <div class="ni-body">
+      <span>Kegiatan Tahunan</span>
+      <h4>Ziarah Wali Songo: Menapak Jejak Para Penguat Hati</h4>
+    </div>
+
+    <div class="ni-arrow">
+      <i data-lucide="arrow-up-right"></i>
+    </div>
+  </article>
+
+
+  <!-- Berita 2 -->
+  <article
+    class="news-item"
+    data-img="img/brosur.jpg"
+    data-cat="PPDB"
+    data-date="04 juli 2026"
+    data-title="Pembukaan PPDB Santri Baru Tahun Ajaran 2025/2026"
+    data-body="<p>Penerimaan santri baru tahun ajaran 2025/2026 resmi dibuka. Pendaftaran dapat dilakukan langsung melalui formulir online di laman ini atau datang ke sekretariat pondok.</p>"
+  >
+    <div class="ni-date">
+      <b>04</b>
+      <span>Juli</span>
+    </div>
+
+    <div class="ni-body">
+      <span>PPDB</span>
+      <h4>Pembukaan PPDB Santri Baru Tahun Ajaran 2026/2027</h4>
+    </div>
+
+    <div class="ni-arrow">
+      <i data-lucide="arrow-up-right"></i>
+    </div>
+  </article>
+
+
+  <!-- Berita 3 -->
+  <article
+    class="news-item"
+    data-img="img/IMG_4911.JPG"
+    data-cat="Rutinan"
+    data-date="09 Mei 2025"
+    data-title="Lailatush Sholawat: Malam Penuh Cinta pada Rasulullah"
+    data-body="<p>Rutinan Jumat Wage kembali digelar dengan pembacaan Simtudduror dan sholawat bersama seluruh santri dan jamaah sekitar.</p>"
+  >
+    <div class="ni-date">
+      <b>09</b>
+      <span>Mei</span>
+    </div>
+
+    <div class="ni-body">
+      <span>Rutinan</span>
+      <h4>Lailatush Sholawat: Malam Penuh Cinta pada Rasulullah</h4>
+    </div>
+
+    <div class="ni-arrow">
+      <i data-lucide="arrow-up-right"></i>
+    </div>
+  </article>
+
+</div>
+
+<!-- ====== PPDB ====== -->
+<section id="ppdb">
+  <div class="wrap">
+    <div class="ppdb-grid">
+      <div data-reveal>
+        <div class="sec-label">Penerimaan Santri Baru</div>
+        <h2>Gabunglah ke lautan<br>ilmu kami</h2>
+        <ul class="steps">
+          <li><span class="s-no">1</span><div><b>Isi Formulir</b><span>Lengkapi data calon santri pada formulir di samping.</span></div></li>
+          <li><span class="s-no">2</span><div><b>Verifikasi via WhatsApp</b><span>Panitia PPDB menghubungi Anda untuk konfirmasi berkas.</span></div></li>
+          <li><span class="s-no">3</span><div><b>Daftar Ulang</b><span>Penyelesaian administrasi dan masuk jamuan pertama.</span></div></li>
+          <li><span class="s-no">4</span><div><b>Sowan Ke Pengasuh</b><span>calon santri dan wali diharapkan melakukan sowan kepada pengasuh sebagai bentuk silaturahmi serta memohon doa dan arahan sebelum memulai pendidikan di pondok.</span></div></li>
+        </ul>
+        <div class="ppdb-note"><i data-lucide="info"></i> Pendaftaran dibuka sepanjang tahun — kuota terbatas per angkatan.</div>
+        <div class="wa-direct"><i class="fa-brands fa-whatsapp" style="color:#25d366;font-size:22px"></i> <span>Butuh bantuan cepat? Chat langsung: <b>0852-7236-7693</b></span></div>
+      </div>
+      <form class="form-panel" id="ppdbForm" data-reveal>
+        <h3>Formulir Pendaftaran</h3>
+        <p>Isi data di bawah — pendaftaran akan diteruskan ke WhatsApp panitia.</p>
+        <div class="field">
+          <label for="nama">Nama Calon Santri</label>
+          <input type="text" id="nama" name="nama" placeholder="Nama lengkap" required>
+        </div>
+        <div class="field">
+          <label for="wali">Nama Wali</label>
+          <input type="text" id="wali" name="wali" placeholder="Nama ayah/ibu/wali" required>
+        </div>
+        <div class="field">
+          <label for="hp">No. HP / WhatsApp</label>
+          <input type="tel" id="hp" name="hp" placeholder="08xxxxxxxxxx" required>
+        </div>
+        <div class="field">
+          <label for="prog">Program yang Dituju</label>
+          <select id="prog" name="prog" required>
+            <option value="Tahfidzul Qur'an 30 Juz">Tahfidzul Qur'an 30 Juz</option>
+            <option value="Madrasah Diniyah (Kitab Kuning)">Madrasah Diniyah (Kitab Kuning)</option>
+            <option value="Formal + Tahfidz (MI/MTs/MA)">Formal + Tahfidz (MI/MTs/MA)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-glow">Kirim Pendaftaran <i data-lucide="send"></i></button>
+        <div class="form-fine">Data terkirim aman via <b>WhatsApp</b> &bull; Tanpa biaya pendaftaran</div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ====== FOOTER ====== -->
+<footer id="kontak">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="#beranda">
+          <img src="1.png" alt="Logo" class="brand-logo">
+          <span class="brand-txt"><span class="b1">PP.Sabilul Huda</span><br><span class="b2">Bahrul 'Ulum</span></span>
+        </a>
+        <p>Lembaga pendidikan Islam — mencetak generasi Qur'ani yang berilmu, berakhlak, dan bermanfaat bagi umat.</p>
+        <div class="socials">
+          <a class="s-yt" href="https://youtube.com/@ppsabilulhudabahrululum9597?si=Tk_8exBZBV46uZVD" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a class="s-fb" href="https://web.facebook.com/sabilul.huda.9237/about" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a class="s-ig" href="https://instagram.com/sabilulhuda_" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a class="s-wa" href="https://wa.me/6285272367693" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Halaman</h5>
+        <ul>
+          <li><a href="#beranda">Beranda</a></li>
+          <li><a href="#profil">Profil</a></li>
+          <li><a href="#program">Program</a></li>
+          <li><a href="#galeri">Galeri</a></li>
+          <li><a href="#berita">Berita</a></li>
+          <li><a href="#ppdb">Pendaftaran</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Program</h5>
+        <ul>
+          <li><a href="#program">Tahfidzul Qur'an</a></li>
+          <li><a href="#program">Madrasah Diniyah</a></li>
+          <li><a href="#program">Pendidikan Formal</a></li>
+          <li><a href="#program">Lailatush Sholawat</a></li>
+          <li><a href="#program">Ziarah Wali Songo</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Kontak</h5>
+        <ul class="foot-contact">
+          <li><i data-lucide="map-pin"></i> <span>Tambakberas, Jombang, Jawa Timur</span></li>
+          <li><i data-lucide="phone"></i> <a href="https://wa.me/6285272367693">0852-7236-7693</a></li>
+          <li><i data-lucide="mail"></i> <a href="mailto:pp.sabilulhuda@gmail.com">pp.sabilulhuda@gmail.com</a></li>
+          <li><i data-lucide="clock"></i> <span>Sekretariat: 07.00 – 17.00 WIB</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2025 PP Sabilul Huda Bahrul 'Ulum. All rights reserved.</span>
+      <span class="arab">خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ====== WA MELAYANG ====== -->
+<a class="wa-fab" href="https://wa.me/6285272367693" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+  <span class="wa-tip">Butuh bantuan? Chat kami</span>
+</a>
+
+<!-- ====== TOAST ====== -->
+<div id="toast">
+  <div class="toast-icon"><i data-lucide="check"></i></div>
+  <div class="toast-msg" id="toastMsg"></div>
+</div>
+
+<!-- ====== MODAL BERITA ====== -->
+<div id="newsModal">
+  <div class="modal-backdrop"></div>
+  <div class="modal-panel">
+    <button id="modalClose" aria-label="Tutup"><i data-lucide="x"></i></button>
+    <img id="modalImg" src="img/susnn.jpeg" alt="">
+    <div class="modal-body">
+      <div class="nf-meta"><span class="chip" id="modalCat">Acara</span><span class="nf-date" id="modalDate"></span></div>
+      <h3 id="modalTitle"></h3>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+</div>
+
+<button id="toTop" aria-label="Ke atas"><i data-lucide="arrow-up"></i></button>
+
+<div id="programPreview"><img src="img/ls.JPG" alt="preview"></div>
+<script src="script.js"></script>
+</body>
+</html>
